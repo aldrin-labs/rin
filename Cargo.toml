@@ -40,15 +40,12 @@ frameworks = ["WebKit"]
 [dependencies]
 anyhow = "1.0"
 log = "0.4"
-reqwest = { version = "0.12.4", features = ["json"] }
+reqwest = { version = "0.12.4", features = ["json", "wasm-bindgen"], default-features = false }
 async-recursion = "1.1.1"
 futures = "0.3.30"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-jsonwebtoken = "8.3.0"
-dotenvy = "0.15.7"
-dotenvy_macro = "0.15.7"
-common = { path = "common" }
+common = { path = "common", default-features = false }
 
 dioxus = { version = "0.5", features = ["web", "router", "hooks"], default-features = false }
 dioxus-web = { version = "0.5", features = ["hydrate"] }
@@ -78,15 +75,3 @@ thiserror = "1.0"
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 wry = "0.37"
 tao = "0.26"
-
-[profile]
-
-[profile.wasm-dev]
-inherits = "dev"
-opt-level = 1
-
-[profile.server-dev]
-inherits = "dev"
-
-[profile.android-dev]
-inherits = "dev"

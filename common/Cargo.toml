@@ -7,7 +7,6 @@ edition = "2021"
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
 
-# Serum DEX dependencies
-solana-sdk = { version = "=1.16.0", default-features = false, features = ["wasm"] }
-serum_dex = { git = "https://github.com/project-serum/serum-dex", tag = "v0.5.6", features = ["no-entrypoint", "wasm"] }
-anchor-client = { version = "0.28", default-features = false, features = ["async", "wasm"] }
+# Serum DEX dependencies - Minimal WASM-compatible version
+solana-sdk = { version = "=1.16.0", default-features = false }
+serum_dex = { git = "https://github.com/project-serum/serum-dex", tag = "v0.5.6", features = ["no-entrypoint"] }
