@@ -12,6 +12,10 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 name = "t5-rs-desktop"
 path = "gen/bin/desktop.rs"
 
+[[bin]]
+name = "t5-rs"
+path = "gen/bin/web.rs"
+
 [package.metadata.cargo-android]
 app-activity-name = "com.example.t5_rs.MainActivity"
 app-dependencies = [
@@ -36,17 +40,14 @@ frameworks = ["WebKit"]
 [dependencies]
 anyhow = "1.0"
 log = "0.4"
-reqwest = { version = "0.12.4", features = ["json"] }
+reqwest = { version = "0.12.4", features = ["json", "wasm-bindgen"], default-features = false }
 async-recursion = "1.1.1"
 futures = "0.3.30"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-jsonwebtoken = "8.3.0"
-dotenvy = "0.15.7"
-dotenvy_macro = "0.15.7"
-common = { path = "common" }
+common = { path = "common", default-features = false }
 
-dioxus = { version = "0.5", features = ["web", "router", "hooks"] }
+dioxus = { version = "0.5", features = ["web", "router", "hooks"], default-features = false }
 dioxus-web = { version = "0.5", features = ["hydrate"] }
 dioxus-router = { version = "0.5", features = ["web"] }
 dioxus-hooks = "0.5"
