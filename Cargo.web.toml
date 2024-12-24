@@ -40,7 +40,6 @@ frameworks = ["WebKit"]
 [dependencies]
 anyhow = "1.0"
 log = "0.4"
-reqwest = { version = "0.12.4", features = ["json", "wasm-bindgen"], default-features = false }
 async-recursion = "1.1.1"
 futures = "0.3.30"
 serde = { version = "1.0", features = ["derive"] }
